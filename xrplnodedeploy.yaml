@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xrplnodedeploy-deployment
+  labels:
+    app: xrplnode
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: xrplnode
+  template:
+    metadata:
+      labels:
+        app: xrplnode
+    spec:    
+      containers:
+      - name: xrplnodeimage
+        image: rajkrram/xrplimage:1.0
+        imagePullPolicy: Always
