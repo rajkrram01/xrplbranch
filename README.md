@@ -18,6 +18,7 @@ Steps I followed to perform the task:
     Link to Dockerimage for reference : https://hub.docker.com/repository/docker/rajkrram/xrplimage
 
 4. Next step was to configure minikube and kubectl.
+
     Step 1: Checked if Virtualization is supported in machine
    
     command: systeminfo
@@ -46,6 +47,6 @@ Steps I followed to perform the task:
 
 5. Deployment YAML file is then deployed by using below command
 
-    command: kubectl apply -f xrpnlnodedeploy.yaml 
-             kubectl create deployment xrplnode --image=rajkrram/xrplimage:1.0 --replicas=2  (alternative command to run without using yaml file)
+    command: kubectl apply -f xrpnlnodedeploy.yaml
+    command: kubectl create deployment xrplnode --image=rajkrram/xrplimage:1.0 --replicas=2  (alternative command to run without using yaml file)
     using above command pods, deployment, replicasets are created.   
