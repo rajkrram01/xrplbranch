@@ -48,5 +48,7 @@ Steps I followed to perform the task:
 5. Deployment YAML file is then deployed by using below command
 
     command: kubectl apply -f xrpnlnodedeploy.yaml
+    
     command: kubectl create deployment xrplnode --image=rajkrram/xrplimage:1.0 --replicas=2  (alternative command to run without using yaml file)
+    
     using above command pods, deployment, replicasets are created.   
