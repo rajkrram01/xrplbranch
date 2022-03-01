@@ -6,6 +6,8 @@ RUN apt-key finger
 RUN echo "deb https://repos.ripple.com/repos/rippled-deb bionic stable" | tee -a /etc/apt/sources.list.d/ripple.list
 RUN apt update -y   
 RUN apt install rippled -y        
-RUN apt install systemctl -y       # Installs systemctl in the docker image
-CMD ["systemctl status rippled.service","systemctl start rippled.service","systemctl enable rippled.service"]  # Ensures that the rippled.service is enabled.
-CMD ["ln -s /opt/ripple/etc/update-rippled-cron /etc/cron.d/"]    # This line creates symlink with cronjob set up rippled to automatically upgrade to the latest version with a one-time cron configuration.
+RUN apt install systemctl -y
+CMD ["systemctl status rippled.service","systemctl start rippled.service","systemctl enable rippled.service"]
+COPY ./script.sh /
+RUN chmod +x /script.sh
+ENTRYPOINT ["/script.sh"]
